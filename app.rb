@@ -1,5 +1,9 @@
 module RomanNumeral
 
+  def self.letters
+    ['I', 'V', 'X']
+  end
+
   def self.value_for letter
     case letter
     when 'I'
@@ -16,7 +20,7 @@ module RomanNumeral
     if input.include? 'XL'
       result += 40
     elsif input.include? 'X'
-      result += value_for('X') * input.split('').select { |x| x == 'X' }.count
+      result += count_it input, 'X'
     end
     result += value_for 'V' if input.include? 'V'
     result += count_it input, 'I'
@@ -24,13 +28,17 @@ module RomanNumeral
   end
 
   def self.count_it input, letter
-    return 0 unless input.include? 'I'
-    if input.include? 'I'
-      if input[-1] == 'I'
-        value_for(letter) * input.split('').select { |x| x == 'I' }.count
-      else
-        -1 * value_for(letter)
-      end
+    return 0 unless input.include? letter
+
+    string_to_use = input.clone
+    letters.select { |x| value_for(x) < value_for(letter) }.each do |x|
+      string_to_use.gsub! x, ''
+    end
+
+    if string_to_use[-1] == letter
+      value_for(letter) * input.split('').select { |x| x == letter }.count
+    else
+      -1 * value_for(letter)
     end
   end
 end
