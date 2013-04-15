@@ -13,14 +13,14 @@ module RomanNumeral
     result
   end
 
-  def self.fix_it input, letter
+  def self.count_it input, letter
+    return 0 unless input.include? 'I'
     if input.include? 'I'
       if input[-1] == 'I'
-        return input.split('').select { |x| x == 'I' }.count
+        input.split('').select { |x| x == 'I' }.count
       else
-        return -1
+        -1
       end
     end
-    0
   end
 end
