@@ -22,4 +22,8 @@ describe RomanNumeral do
   it "should return 4 for IV" do
     result_for('IV').must_equal 4
   end
+
+  it "should return 5 for V" do
+    result_for('V').must_equal 5
+  end
 end
