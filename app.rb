@@ -26,12 +26,11 @@ module RomanNumeral
   def self.count_it input, letter
     return 0 unless input.include? letter
 
-    string_to_use = input.clone
     letters_less_than(letter).each do |x|
-      string_to_use.gsub! x, ''
+      input = input.gsub x, ''
     end
 
-    if string_to_use[-1] == letter
+    if input[-1] == letter
       value_for(letter) * input.split('').select { |x| x == letter }.count
     else
       -1 * value_for(letter)
