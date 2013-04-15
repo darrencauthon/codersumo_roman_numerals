@@ -1,7 +1,7 @@
 module RomanNumeral
 
   def self.letters
-    ['I', 'V', 'X']
+    ['L', 'X', 'V', 'I']
   end
 
   def self.value_for letter
@@ -18,12 +18,7 @@ module RomanNumeral
   end
 
   def self.convert_to_int input
-    result = 0
-    result += count_it input, 'L'
-    result += count_it input, 'X'
-    result += count_it input, 'V'
-    result += count_it input, 'I'
-    result
+    letters.reduce(0) { |t, i| t += count_it input, i }
   end
 
   def self.count_it input, letter
