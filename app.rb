@@ -2,7 +2,11 @@ module RomanNumeral
   def self.convert_to_int input
     if input.include? 'V'
       result = 5
-      result -= 1 if input[0] == 'I'
+      if input[0] == 'I'
+        result -= 1 
+      else
+        result += input.split('').select { |x| x == 'I' }.count
+      end
       return result
     end
     input.length
