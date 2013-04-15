@@ -1,28 +1,21 @@
 module RomanNumeral
   def self.convert_to_int input
+    result = 0
     if input.include? 'XL'
-      result = 40
-      result += input.split('').select { |x| x == 'I' }.count
-      return result
-    end
-    if input.include? 'X'
-      result = 10 * input.split('').select { |x| x == 'X' }.count
-      if input[0] == 'I'
-        result -= 1 
-      else
-        result += input.split('').select { |x| x == 'I' }.count
-      end
-      return result
+      result += 40
+    elsif input.include? 'X'
+      result += 10 * input.split('').select { |x| x == 'X' }.count
     end
     if input.include? 'V'
-      result = 5
-      if input[0] == 'I'
-        result -= 1 
-      else
-        result += input.split('').select { |x| x == 'I' }.count
-      end
-      return result
+      result += 5
     end
-    input.length
+    if input.include? 'I'
+      if input[-1] == 'I'
+        result += input.split('').select { |x| x == 'I' }.count
+      else
+        result -= 1
+      end
+    end
+    result
   end
 end
