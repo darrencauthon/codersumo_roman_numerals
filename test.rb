@@ -42,4 +42,12 @@ describe RomanNumeral do
   it "should return 9 for IX" do
     result_for('IX').must_equal 9
   end
+
+  it "should return 10 for X" do
+    result_for('X').must_equal 10
+  end
+
+  it "should return 11 for XI" do
+    result_for('XI').must_equal 11
+  end
 end
