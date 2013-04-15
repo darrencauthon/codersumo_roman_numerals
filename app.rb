@@ -26,6 +26,7 @@ module RomanNumeral
   def self.count_it input, letter
     return 0 unless input.include? letter
 
+    # remove all characters less than the one being evaluated
     letters_less_than(letter).each { |x| input = input.gsub(x, '') }
 
     if input[-1] == letter
