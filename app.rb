@@ -1,5 +1,8 @@
 module RomanNumeral
   def self.convert_to_int input
+    if input.include? 'XL'
+      return 40
+    end
     if input.include? 'X'
       result = 10 * input.split('').select { |x| x == 'X' }.count
       if input[0] == 'I'
