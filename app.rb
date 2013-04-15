@@ -18,9 +18,7 @@ module RomanNumeral
     elsif input.include? 'X'
       result += value_for('X') * input.split('').select { |x| x == 'X' }.count
     end
-    if input.include? 'V'
-      result += value_for 'V'
-    end
+    result += value_for 'V' if input.include? 'V'
     result += count_it input, 'I'
     result
   end
