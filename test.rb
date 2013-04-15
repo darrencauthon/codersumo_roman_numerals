@@ -38,4 +38,8 @@ describe RomanNumeral do
   it "should return 8 for VIII" do
     result_for('VIII').must_equal 8
   end
+
+  it "should return 9 for IX" do
+    result_for('IX').must_equal 9
+  end
 end
