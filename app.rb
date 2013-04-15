@@ -1,5 +1,11 @@
 module RomanNumeral
 
+  def self.convert_to_int input
+    letters.reduce(0) { |t, i| t += count_it input, i }
+  end
+  
+  private
+
   def self.letters
     ['L', 'X', 'V', 'I']
   end
@@ -15,10 +21,6 @@ module RomanNumeral
     when 'L'
       50
     end
-  end
-
-  def self.convert_to_int input
-    letters.reduce(0) { |t, i| t += count_it input, i }
   end
 
   def self.count_it input, letter
