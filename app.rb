@@ -7,20 +7,20 @@ module RomanNumeral
   private
 
   def self.letters
-    ['L', 'X', 'V', 'I']
+    letter_values.keys
+  end
+
+  def self.letter_values
+    { 
+      'L' => 50,
+      'X' => 10,
+      'V' =>  5,
+      'I' =>  1
+    }
   end
 
   def self.value_for letter
-    case letter
-    when 'I'
-      1
-    when 'V'
-      5
-    when 'X'
-      10
-    when 'L'
-      50
-    end
+    letter_values[letter]
   end
 
   def self.count_it input, letter
