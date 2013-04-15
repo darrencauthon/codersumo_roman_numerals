@@ -9,13 +9,18 @@ module RomanNumeral
     if input.include? 'V'
       result += 5
     end
+    result += count_it input, 'I'
+    result
+  end
+
+  def self.fix_it input, letter
     if input.include? 'I'
       if input[-1] == 'I'
-        result += input.split('').select { |x| x == 'I' }.count
+        return input.split('').select { |x| x == 'I' }.count
       else
-        result -= 1
+        return -1
       end
     end
-    result
+    0
   end
 end
