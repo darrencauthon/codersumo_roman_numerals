@@ -12,17 +12,16 @@ module RomanNumeral
       5
     when 'X'
       10
+    when 'L'
+      50
     end
   end
 
   def self.convert_to_int input
     result = 0
-    if input.include? 'XL'
-      result += 40
-    elsif input.include? 'X'
-      result += count_it input, 'X'
-    end
-    result += value_for 'V' if input.include? 'V'
+    result += count_it input, 'L'
+    result += count_it input, 'X'
+    result += count_it input, 'V'
     result += count_it input, 'I'
     result
   end
