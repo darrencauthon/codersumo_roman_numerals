@@ -30,4 +30,12 @@ describe RomanNumeral do
   it "should return 6 for VI" do
     result_for('VI').must_equal 6
   end
+
+  it "should return 7 for VII" do
+    result_for('VII').must_equal 7
+  end
+
+  it "should return 8 for VIII" do
+    result_for('VIII').must_equal 8
+  end
 end
