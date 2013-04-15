@@ -58,4 +58,8 @@ describe RomanNumeral do
   it "should return 40 for XL" do
     result_for('XL').must_equal 40
   end
+
+  it "should return 41 for XLI" do
+    result_for('XLI').must_equal 41
+  end
 end
