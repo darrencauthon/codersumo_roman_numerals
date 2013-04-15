@@ -31,7 +31,7 @@ module RomanNumeral
     return 0 unless input.include? letter
 
     string_to_use = input.clone
-    letters.select { |x| value_for(x) < value_for(letter) }.each do |x|
+    letters_less_than(letter).each do |x|
       string_to_use.gsub! x, ''
     end
 
@@ -40,5 +40,9 @@ module RomanNumeral
     else
       -1 * value_for(letter)
     end
+  end
+
+  def self.letters_less_than letter
+    letters.select { |x| value_for(x) < value_for(letter) }
   end
 end
