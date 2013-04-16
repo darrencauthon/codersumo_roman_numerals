@@ -62,4 +62,32 @@ describe RomanNumeral do
   it "should return 41 for XLI" do
     result_for('XLI').must_equal 41
   end
+
+  it "should return 44 for XLIV" do
+    result_for('XLIV').must_equal 44
+  end
+
+  it "should return 80 for LXXX" do
+    result_for('LXXX').must_equal 80
+  end
+
+  it "should return 90 for XC" do
+    result_for('XC').must_equal 90
+  end
+
+  it "should return 300 for CCC" do
+    result_for('CCC').must_equal 300
+  end
+
+  it "should return 600 for DC" do
+    result_for('DC').must_equal 600
+  end
+
+  it "should return 800 for DCCC" do
+    result_for('DCCC').must_equal 800
+  end
+
+  it "should return 900 for CM" do
+    result_for('CM').must_equal 900
+  end
 end
