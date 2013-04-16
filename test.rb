@@ -90,4 +90,20 @@ describe RomanNumeral do
   it "should return 900 for CM" do
     result_for('CM').must_equal 900
   end
+
+  it "should return 2302 for MMCCCII" do
+    result_for('MMCCCII').must_equal 2302
+  end
+
+  it "should return 4276 for MMMMCCLXXVI" do
+    result_for('MMMMCCLXXVI').must_equal 4276
+  end
+
+  it "should return 1845 for MDCCCXLV" do
+    result_for('MDCCCXLV').must_equal 1845
+  end
+
+  it "should return 1543 for MDXLIII" do
+    result_for('MDXLIII').must_equal 1543
+  end
 end
